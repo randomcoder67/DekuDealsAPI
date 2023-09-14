@@ -1,4 +1,4 @@
-# DekuDeals-Python-API
+# DekuDealsAPI
 
 An unofficial Python 3 API for the Nintendo Switch game price tracker website DekuDeals.com
 
@@ -10,7 +10,7 @@ WIP, so install and usage instructions may change
 
 ### Arch Linux (as pip no longer works on Arch)
 
-`git clone https://github.com/randomcoder67/DekuDealsAPI.git`
+`git clone https://github.com/randomcoder67/DekuDealsAPI.git` into the directory of your project
 
 ### Distros where pip still works
 
@@ -23,7 +23,7 @@ WIP, so install and usage instructions may change
 ``` python3
 from DekuDealsAPI import search
 
-results = search.PerformSearch(*keywords*)
+results = search.PerformSearch("lego star wars")
 ```
 
 `PerformSearch` returns a dictionary with two keys, `searchTerm` and `results`  
@@ -43,13 +43,13 @@ results = search.PerformSearch(*keywords*)
 ``` python3
 from DekuDealsAPI import page
 
-itemDetails = page.ItemDetails(*DekuDeals_Game_URL*)
+itemDetails = page.ItemDetails("https://www.dekudeals.com/items/terraria")
 ```
 
 `ItemDetails` returns a dictionary with the following keys (value will be `None` if not present):
 
 `msrp` - MSRP as a float  
-`released` - A dictinary of the release dates in NA, EU and JP, date expressed in yyyymmdd format (`%Y%m%`)  
+`released` - A dictionary of the release dates in NA, EU and JP, date expressed in yyyymmdd format (`%Y%m%d`)  
 `genre` - A list of genres  
 `numberOfPlayers` - A dictionary of number of players per play type (e.g. Offline, Online)  
 `developer` - Developer name  
@@ -67,4 +67,3 @@ itemDetails = page.ItemDetails(*DekuDeals_Game_URL*)
 `digitalLowestPrice` - Digital lowest ever price  
 `digitalGreatestDiscount` - Digital greatest ever discount  
 `graphData` - JSON formatted price history data
-
