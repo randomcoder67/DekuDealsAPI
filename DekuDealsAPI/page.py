@@ -34,15 +34,17 @@ def ItemDetails(url):
     allTimeLowDetails = priceHistory[0].findChildren("table")[0].findAll("td")
     if len(allTimeLowDetails) == 3: # For digital only games (technically there are some physical only, like Demon Throttle, so this isn't a great solution)
         itemDetails.update({
-            "digitalPrice": float(noSymbolPrice(allTimeLowDetails[1].text.strip())),
-            "digitalDiscount": allTimeLowDetails[2].text.strip().strip("(").strip(")")
+            "physicalLowestPrice": None,
+            "physicalGreatestDiscount": None,
+            "digitalLowestPrice": float(noSymbolPrice(allTimeLowDetails[1].text.strip())),
+            "digitalGreatestDiscount": allTimeLowDetails[2].text.strip().strip("(").strip(")")
         })
     else: # For digital and physical games
         itemDetails.update({
-            "physicalPrice": float(noSymbolPrice(allTimeLowDetails[3].text.strip())),
-            "physicalDiscount": allTimeLowDetails[4].text.strip().strip("(").strip(")"),
-            "digitalPrice": float(noSymbolPrice(allTimeLowDetails[5].text.strip())),
-            "digitalDiscount": allTimeLowDetails[6].text.strip().strip("(").strip(")")
+            "physicalLowestPrice": float(noSymbolPrice(allTimeLowDetails[3].text.strip())),
+            "physicalGreatestDiscount": allTimeLowDetails[4].text.strip().strip("(").strip(")"),
+            "digitalLowestPrice": float(noSymbolPrice(allTimeLowDetails[5].text.strip())),
+            "digitalGreatestDiscount": allTimeLowDetails[6].text.strip().strip("(").strip(")")
         })
 
     # Parse the price history graph data

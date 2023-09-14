@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "DekuDealsAPI"
+version = "0.1"
+authors = [ 
+    { name = "randomcoder67", email="author@example.com" },
+]
+description = "Python3 API for DekuDeals"
+readme = "README.md"
+requres-python = ">=3.7"
+classifier = [
+    "Programming Language :: Python :: 3",
+    "License :: GNU GPLv3 :: GNU GPLv3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/randomcoder67/DekuDealsAPI"
+"Bug Tracker" = "https://github.com/randomcoder67/DekuDealsAPI/issues"

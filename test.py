@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import json
-import search
-import page
+from DekuDealsAPI import search
+from DekuDealsAPI import page
 
 a = search.PerformSearch("lego star wars")
 b = page.ItemDetails("https://www.dekudeals.com/items/my-time-at-portia")
@@ -15,3 +15,6 @@ print(final)
 
 final2 = json.dumps(b, indent=2)
 print(final2)
+
+print(a["results"][0].keys())
+print(b.keys())
