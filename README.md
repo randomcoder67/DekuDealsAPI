@@ -18,12 +18,12 @@ WIP, so install and usage instructions may change
 
 ## Usage
 
-### Search
+### Searching
 
 ``` python3
-from DekuDealsAPI import search
+import DekuDealsAPI as ddAPI
 
-results = search.PerformSearch("lego star wars")
+results = ddAPI.PerformSearch("lego star wars")
 ```
 
 `PerformSearch` returns a dictionary with two keys, `searchTerm` and `results`  
@@ -38,12 +38,12 @@ results = search.PerformSearch("lego star wars")
 `discountInfo` - Discount information (`None` is no discount currently, or if discount is not either "Lowest price ever" or "Matches previous low")  
 `currentPrice` - Current price, either `price` if no discount, or `discountPrice` if there is a discount
 
-### Page
+### Getting Specific Game Details
 
 ``` python3
-from DekuDealsAPI import page
+import DekuDealsAPI as ddAPI
 
-itemDetails = page.ItemDetails("https://www.dekudeals.com/items/terraria")
+itemDetails = ddAPI.ItemDetails("https://www.dekudeals.com/items/terraria")
 ```
 
 `ItemDetails` returns a dictionary with the following keys (value will be `None` if not present):

@@ -27,6 +27,29 @@ def ItemDetails(url):
     htmlText = response.text
     soup = BeautifulSoup(htmlText, "html.parser")
 
+    # Get the current best prices, with url, store, format, price and discount
+    currentPrices = soup.find_all("table", {"class": "table table-align-middle item-price-table"})[0]
+    prices = []
+    rows = currentPrices.find_all("tr")
+    for i in range(len(rows)):
+        if len(rows[i].find_all("td")) == 1: # If length is 1, it's an "information row" with a used price or extra detail
+            continue
+        curEntry = {
+            "url": rows[i].find("a")["href"],
+            "shopName": rows[i].find("img")["alt"],
+            "format": rows[i].contents[3].text.strip(),
+            "price": None,
+            "discount": None
+        }
+        priceDetails = rows[i].select("div.btn-block")[0].contents # Get price details
+        if not noSymbolPrice(priceDetails[0].strip()) == "": # Check price is present, if it is, add it
+            curEntry["price"] = float(noSymbolPrice(priceDetails[0].strip())) 
+        if len(priceDetails) == 3: # Check if there is a discount, if it is, add it
+            curEntry["discount"] = priceDetails[1].text.strip()
+        prices.append(curEntry)
+    
+    itemDetails.update({"prices": prices})
+    
     # Get the price history section
     priceHistory = soup.find_all("div", {"id": "price-history"})
 
