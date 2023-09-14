@@ -32,17 +32,20 @@ def PerformSearch(keywords):
             # If item is not on sale
             if price["class"] == ["text-muted"]:
                 individualResult.update({"price": price.text, "discountPrice": None, "discountPercent": 0, "discountInfo": None})
+            
             # If item is on sale
             else:
                 # Get the discount info
                 discountInfo = price.text.strip().split("\n")
                 # Add price, discountPrice and discountPercent
                 individualResult.update({"price": discountInfo[0], "discountPrice": discountInfo[1], "discountPercent": discountInfo[2]})
+                
                 # If length == 4, then the item is discounted with a special tag
                 if len(discountInfo) == 4:
                     individualResult.update({"discountInfo": discountInfo[3]})
                 else:
                     individualResult.update({"discountInfo": None})
+                
         # Set only price
         else:
             price = price.replace("\n", "")
