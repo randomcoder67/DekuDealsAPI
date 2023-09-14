@@ -2,7 +2,7 @@
 
 An unofficial Python 3 API for the Nintendo Switch game price tracker website DekuDeals.com
 
-[PyPi Link](https://pypi.org/project/DekuDealsAPI/0.1/)
+[PyPi Link](https://pypi.org/project/DekuDealsAPI/0.1.1/)
 
 WIP, so install and usage instructions may change
 
