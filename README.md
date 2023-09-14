@@ -6,6 +6,14 @@ An unofficial Python 3 API for the Nintendo Switch game price tracker website De
 
 WIP, so install and usage instructions may change
 
+**ToDo/Ideas:**
+* Search results multiple pages
+* Recent price drops parsing
+* Drawing a graph of the price history
+* Sale stats (how long since last sale, how frequent, average discount amount etc)
+* Future sale predicting
+* Allow genre, developer and publisher in ItemDetails to be used as a search term
+
 ## Installation 
 
 ### Arch Linux (as pip no longer works on Arch)
