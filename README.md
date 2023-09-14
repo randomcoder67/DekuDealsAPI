@@ -10,11 +10,12 @@ WIP, so install and usage instructions may change
 
 ### Arch Linux (as pip no longer works on Arch)
 
+`pacman -S python-beautifulsoup4 python-requests`  
 `git clone https://github.com/randomcoder67/DekuDealsAPI.git` into the directory of your project
 
 ### Distros where pip still works
 
-`pip install DekuDealsAPI`
+`pip install beautifulsoup4 requests DekuDealsAPI`
 
 ## Usage
 

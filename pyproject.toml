@@ -8,6 +8,11 @@ version = "0.1.1"
 authors = [ 
     { name = "randomcoder67", email="author@example.com" },
 ]
+keywords = ["dekudeals", "nintendo", "nintendo switch", "switch", "api"]
+dependencies = [
+    "beautifulsoup4",
+    "requests",
+]
 description = "Python3 API for DekuDeals"
 readme = "README.md"
 requres-python = ">=3.7"
