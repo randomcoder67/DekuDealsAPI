@@ -66,4 +66,5 @@ itemDetails = ddAPI.ItemDetails("https://www.dekudeals.com/items/terraria")
 `physicalGreatestDiscount` - Physical greatest ever discount, if applicable  
 `digitalLowestPrice` - Digital lowest ever price  
 `digitalGreatestDiscount` - Digital greatest ever discount  
-`graphData` - JSON formatted price history data
+`graphData` - JSON formatted price history data  
+`prices` - List of price entries, each one contains `url`, `shopName`, `format` (Digital or Physical), `price` and `discount`
