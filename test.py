@@ -3,18 +3,34 @@
 import json
 import DekuDealsAPI as ddAPI
 
-a = ddAPI.PerformSearch("lego star wars")
-b = ddAPI.ItemDetails("https://www.dekudeals.com/items/super-mario-odyssey")
-b.pop("graphData") # I know the graphData bit is there bit it's huge so printing is annoying
+# Basic example of using API and printing results
 
-#print(a["results"])
+legoStarWarsSearch = ddAPI.PerformSearch("lego star wars")
+superMarioOdyssey = ddAPI.ItemDetails("https://www.dekudeals.com/items/super-mario-odyssey")
+superMarioOdyssey.pop("graphData") # I know the graphData bit is there bit it's huge so printing is annoying
 
-final = json.dumps(a, indent=2)
+# Printing nicely formatted
+print(json.dumps(legoStarWarsSearch, indent=2))
+print(json.dumps(superMarioOdyssey, indent=2))
 
-#print(final)
+# Printing keys
+print(legoStarWarsSearch.keys())
+print(legoStarWarsSearch["results"][0].keys())
+print(superMarioOdyssey.keys())
 
-final2 = json.dumps(b, indent=2)
-print(final2)
+# Plotting price history data with matplotlib
 
-#print(a["results"][0].keys())
-#print(b.keys())
+import matplotlib.pyplot as plt
+
+terraria = ddAPI.ItemDetails("https://www.dekudeals.com/items/terraria")
+graphDataJSON = json.loads(terraria["graphData"])
+graphDates = []
+graphValues = []
+
+for entry in graphDataJSON["data"]:
+    graphDates.append(entry[0])
+    graphValues.append(entry[1:])
+
+plt.plot(graphDates, graphValues)
+plt.show()
+
